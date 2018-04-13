@@ -1,10 +1,11 @@
 {
-  "name": "autofloor-calc-outline",
-  "version": "1.0.0",
+  "name": "@kenzotakahashi/autofloor-calc-outline",
+  "version": "1.0.1",
   "description": "Calculate the decoration outline of specified line segments",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha test/test.js",
+    "build": "rollup -c; uglifyjs dist/index.js -c -m -o dist/index.js"
   },
   "repository": {
     "type": "git",
