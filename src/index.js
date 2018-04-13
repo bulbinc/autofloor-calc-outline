@@ -155,10 +155,10 @@ function constructWallOutline(walls, width=WIDTH) {
   return newWalls
 }
 
-function constructOutline(assets) {
+function constructOutline(assets, width=WIDTH) {
   for (const asset of assets) {
     asset.location = sortPoints(asset.location)
-    const lines = makeParallelLines(asset.location, WIDTH);
+    const lines = makeParallelLines(asset.location, width);
     asset.right = lines.right
     asset.left = lines.left
   }
