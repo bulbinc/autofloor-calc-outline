@@ -14,8 +14,8 @@ npm install -D @kenzotakahashi/autofloor-calc-outline
 import {constructWallOutline, constructOutline} from '@kenzotakahashi/autofloor-calc-outline'
 
 const walls = [
-      [[1,3],[3.5,3]],
-      [[1,3],[1.2,0.8]]
+  {type: 1, location: [[1,3],[3.5,3]]},
+  {type: 1, location: [[1,3],[1.2,0.8]]}
 ]
 const wallOutlines = constructWallOutline(walls)
 console.log(wallOutlines)
@@ -25,6 +25,7 @@ Output:
 ```json
 [
     {
+      "type": 1,
       "right": [
         [
           0.9167775056994335,
@@ -57,6 +58,7 @@ Output:
       ]
     },
     {
+      "type": 1,
       "right": [
         [
           1.0832224943005666,
