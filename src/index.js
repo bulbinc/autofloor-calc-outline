@@ -93,13 +93,17 @@ function pickIntersection(current, done, intersection, index) {
 
 function constructWallOutline(walls, width=WIDTH) {
   const newWalls = walls.map(w => {
-    const sorted = sortPoints(w)
-    const newWall = makeParallelLines(sorted, width)
-    newWall.location = sorted
-    newWall.rightDefault = newWall.right.slice(0)
-    newWall.leftDefault = newWall.left.slice(0)
-    newWall.done = [false, false]
-    return newWall
+    const location = sortPoints(w.location)
+    const {right, left} = makeParallelLines(location, width)
+    return {
+      type: w.type,
+      location,
+      right,
+      left,
+      rightDefault: right,
+      leftDefault: left,
+      done: [false, false]
+    }
   })
 
   let inter1, inter2;
@@ -147,22 +151,21 @@ function constructWallOutline(walls, width=WIDTH) {
     }
   }
 
-  for (const wall of newWalls) {
-    delete wall.done
-    delete wall.rightDefault
-    delete wall.leftDefault
-  }
-  return newWalls
+  return newWalls.map(w => {
+    const {done, rightDefault, leftDefault, ...rest} = w
+    return rest
+  })
 }
 
 function constructOutline(assets, width=WIDTH) {
-  for (const asset of assets) {
-    asset.location = sortPoints(asset.location)
-    const lines = makeParallelLines(asset.location, width);
-    asset.right = lines.right
-    asset.left = lines.left
-  }
-  return assets
+  return assets.map(o => {
+    const location = sortPoints(o.location)
+    return {
+      location,
+      type: o.type,
+      ...makeParallelLines(location, width)
+    }
+  })
 }
 
 export {constructWallOutline, constructOutline}
