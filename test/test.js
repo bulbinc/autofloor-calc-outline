@@ -10,7 +10,10 @@ const walls = [
   [[350,80],[350,30]],
   [[550,80],[550,300]],
   [[350,300],[550,300]]
-]
+].map(w => ({
+  type: 1,
+  location: w
+}))
 
 describe('constructWallOutline', function() {
   it('should return outlines', function() {

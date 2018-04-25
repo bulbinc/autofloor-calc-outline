@@ -93,9 +93,10 @@ function pickIntersection(current, done, intersection, index) {
 
 function constructWallOutline(walls, width=WIDTH) {
   const newWalls = walls.map(w => {
-    const location = sortPoints(w)
+    const location = sortPoints(w.location)
     const {right, left} = makeParallelLines(location, width)
     return {
+      type: w.type,
       location,
       right,
       left,
