@@ -1,6 +1,6 @@
 {
   "name": "@kenzotakahashi/autofloor-calc-outline",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Calculate the decoration outline of specified line segments",
   "main": "dist/index.js",
   "scripts": {

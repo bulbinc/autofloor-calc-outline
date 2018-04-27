@@ -161,8 +161,8 @@ function constructOutline(assets, width=WIDTH) {
   return assets.map(o => {
     const location = sortPoints(o.location)
     return {
+      ...o,
       location,
-      type: o.type,
       ...makeParallelLines(location, width)
     }
   })
