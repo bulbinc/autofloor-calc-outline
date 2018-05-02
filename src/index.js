@@ -96,7 +96,7 @@ function constructWallOutline(walls, width=WIDTH) {
     const location = sortPoints(w.location)
     const {right, left} = makeParallelLines(location, width)
     return {
-      type: w.type,
+      ...w,
       location,
       right,
       left,
