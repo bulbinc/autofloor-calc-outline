@@ -11,7 +11,7 @@ function slope(x1, y1, x2, y2) {
 function isParallel(l1, l2) {
   const [[x1,y1],[x2,y2]] = l1
   const [[x3,y3],[x4,y4]] = l2
-  return (x1 === x2 && x3 === x4) || slope(x1,y1,x2,y2) === slope(x3,y3,x4,y4)
+  return (x1 === x2 && x3 === x4) || Math.abs(slope(x1,y1,x2,y2) - slope(x3,y3,x4,y4)) < 0.01
 }
 
 function sortPoints(points) {
